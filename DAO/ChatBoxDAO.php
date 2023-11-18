@@ -212,7 +212,7 @@ class User
     private $pdo;
     public function __construct()
     {
-        require('config/PDO.php');
+        require_once('config/PDO.php');
         $this->pdo = $pdo;
     }
     // lấy id người quản trị web
