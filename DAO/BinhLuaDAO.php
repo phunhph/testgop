@@ -1,5 +1,5 @@
 <?php
-include('models/BinhLuan.php');
+include_once('models/BinhLuan.php');
 class BinhLuanDAO
 {
     // kết nối database

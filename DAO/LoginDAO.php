@@ -1,5 +1,5 @@
 <?php
-include 'models/Login.php';
+include_once 'models/Login.php';
 class LoginDAO
 {
     // kết nối database

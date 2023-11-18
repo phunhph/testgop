@@ -10,16 +10,14 @@ try {
 } catch (PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-function get_time()
-{
+ function get_time() {
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $currentTime = time();
     $timestamp = $currentTime;
     return date("Y-m-d H:i:s", $timestamp);
 }
-function img()
-{
-    if (isset($_FILES["hinh_anh_sp"]) && $_FILES["hinh_anh_sp"]["error"] === UPLOAD_ERR_OK) {
+function img(){
+    if(isset($_FILES["hinh_anh_sp"]) && $_FILES["hinh_anh_sp"]["error"] === UPLOAD_ERR_OK) {
         $target_dir = "assets/imgs/shop/";
         $target_file = $target_dir . basename($_FILES["hinh_anh_sp"]["name"]);
         $uploadOk = 1;
@@ -27,7 +25,7 @@ function img()
 
         // Kiểm tra file ảnh là ảnh thật hay ảnh giả
         $check = getimagesize($_FILES["hinh_anh_sp"]["tmp_name"]);
-        if ($check === false) {
+        if($check === false) {
             throw new Exception("File is not an image.");
         }
 
@@ -37,7 +35,7 @@ function img()
         }
 
         // Cho phép một số định dạng tệp nhất định
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
             throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
         }
 
@@ -55,9 +53,8 @@ function img()
         throw new Exception("No image file uploaded or an error occurred.");
     }
 }
-function imgKH()
-{
-    if (isset($_FILES["anh"]) && $_FILES["anh"]["error"] === UPLOAD_ERR_OK) {
+function imgKH(){
+    if(isset($_FILES["anh"]) && $_FILES["anh"]["error"] === UPLOAD_ERR_OK) {
         $target_dir = "assets/imgs/user/";
         $target_file = $target_dir . basename($_FILES["anh"]["name"]);
         $uploadOk = 1;
@@ -65,7 +62,7 @@ function imgKH()
 
         // Kiểm tra file ảnh là ảnh thật hay ảnh giả
         $check = getimagesize($_FILES["anh"]["tmp_name"]);
-        if ($check === false) {
+        if($check === false) {
             throw new Exception("File is not an image.");
         }
 
@@ -75,7 +72,7 @@ function imgKH()
         }
 
         // Cho phép một số định dạng tệp nhất định
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
             throw new Exception("Sorry, only JPG, JPEG, PNG & GIF files are allowed.");
         }
 

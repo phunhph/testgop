@@ -1,5 +1,5 @@
 <?php
-include('models/Taikhoan.php');
+include_once('models/Taikhoan.php');
 class TaiKhoanDAO
 {
     // kết nối database

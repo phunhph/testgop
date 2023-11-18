@@ -1,5 +1,5 @@
 <?php
-include 'DAO/LoginDAO.php';
+include_once 'DAO/LoginDAO.php';
 class DangNhapController
 {
     // đăng nhập
@@ -30,11 +30,11 @@ class DangNhapController
             } else {
                 $_SESSION['error'] = "đăng nhập thất bại";
                 // Chuyển hướng sau khi đăng nhập thành công
-                header("Location: index.php?controller=login");
+                header("Location: index.php?controller=dangNhap");
                 exit();
             }
         } else {
-            include "views/dangNhap/Login.php";
+            include_once "views/dangNhap/Login.php";
         }
     }
     // đăng xuất
@@ -48,7 +48,7 @@ class DangNhapController
     public function signup()
     {
         if (isset($_SESSION['username'])) {
-            header("Location: index.php?controller=login");
+            header("Location: index.php?controller=dangNhap");
         } else {
             if (isset($_SESSION['role'])) {
                 header("Location: index.php?controller=trangChu");
@@ -56,10 +56,10 @@ class DangNhapController
                 if (isset($_POST['email'])) {
                     $LoginDAO = new LoginDAO();
                     $LoginDAO->signup($_POST['name'], $_POST['email'], $_POST['password']);
-                    header("Location: index.php?controller=login");
+                    header("Location: index.php?controller=dangNhap");
                     exit();
                 } else {
-                    header("Location: index.php?controller=login");
+                    header("Location: index.php?controller=dangNhap");
                 }
             }
         }

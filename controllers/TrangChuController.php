@@ -5,12 +5,12 @@ class TrangChuController
     {
         if (isset($_SESSION['role'])) {
             if ($_SESSION['role'] == 2) {
-                include('views/trangChu/admin/Home.php');
+                include_once('views/trangChu/admin/Home.php');
             } else {
-                include('views/trangChu/user/Home.php');
+                include_once('views/trangChu/user/Home.php');
             }
         } else {
-            header("Location: index.php?controller=login");
+            header("Location: index.php?controller=dangNhap");
         }
     }
 }

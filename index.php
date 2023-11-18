@@ -3,6 +3,7 @@ session_start();
 include 'controllers/DangNhapController.php';
 include 'controllers/TrangChuController.php';
 include 'controllers/SanPhamController.php';
+// include 'controllers/SettingController.php';
 include 'controllers/GioHangController.php';
 include 'controllers/LoaiSanPhamController.php';
 include 'controllers/BoTruyenController.php';
@@ -18,46 +19,70 @@ $controller = $_GET['controller'] ?? 'trangChu';
 // routing controller
 switch ($controller) {
     case 'trangChu':
-        $trangChuController = new trangChuController();
-        $trangChuController->index();
+        $TrangChuController = new TrangChuController();
+        $TrangChuController->index();
         break;
-    case 'login':
+    case 'dangNhap':
         $DangNhapController = new DangNhapController();
         $DangNhapController->index();
         break;
-    case 'signup':
+    case 'dangKy':
         $DangNhapController = new DangNhapController();
         $DangNhapController->signup();
         break;
-    case 'logout':
+    case 'dangXuat':
         $DangNhapController = new DangNhapController();
         $DangNhapController->logout();
         break;
-    case 'forgot':
+    case 'quenMatKhau':
         break;
     case 'sanPham':
         $SanPhamController = new SanPhamController();
         $SanPhamController->index();
         break;
-    case 'sanPham_Detail':
+    case 'sanPham_view':
         $SanPhamController = new SanPhamController();
-        $SanPhamController->sanPhamDetail();
+        $SanPhamController->productDetail();
         break;
+    case 'sanPham_add':
+        $SanPhamController = new SanPhamController();
+        $SanPhamController->add();
+        break;
+    case 'sanPham_fix':
+        $SanPhamController = new SanPhamController();
+        $SanPhamController->fix();
+        break;
+    case 'sanPham_fix_dlimg':
+        $SanPhamController = new SanPhamController();
+        $SanPhamController->sanPham_fix_dlimg();
+        break;
+    case 'sanPham_delete':
+        $SanPhamController = new SanPhamController();
+        $SanPhamController->delete();
+        break;
+        // case 'sanPham':
+        //     $SanPhamController = new SanPhamController();
+        //     $SanPhamController->index();
+        //     break;
+        // case 'sanPhamDetail':
+        //     $SanPhamController = new SanPhamController();
+        //     $SanPhamController->sanPhamDetail();
+        //     break;
     case 'nhaPhatHanh':
         $NhaPhathanhController = new NhaphathanhController();
         $NhaPhathanhController->index();
         break;
     case 'nhaPhatHanh_add':
         $NhaPhathanhController = new NhaphathanhController();
-        $NhaPhathanhController->index();
+        $NhaPhathanhController->add();
         break;
     case 'nhaPhatHanh_fix':
         $NhaPhathanhController = new NhaphathanhController();
-        $NhaPhathanhController->index();
+        $NhaPhathanhController->update();
         break;
     case 'nhaPhatHanh_delete':
         $NhaPhathanhController = new NhaphathanhController();
-        $NhaPhathanhController->index();
+        $NhaPhathanhController->remove();
         break;
     case 'nhaXuatBan':
         $NhaXuatController = new NhaXuatBanController();
@@ -65,23 +90,23 @@ switch ($controller) {
         break;
     case 'nhaXuatBan_add':
         $NhaXuatController = new NhaXuatBanController();
-        $NhaXuatController->index();
+        $NhaXuatController->add();
         break;
     case 'nhaXuatBan_fix':
         $NhaXuatController = new NhaXuatBanController();
-        $NhaXuatController->index();
+        $NhaXuatController->update();
         break;
     case 'nhaXuatBan_delete':
         $NhaXuatController = new NhaXuatBanController();
-        $NhaXuatController->index();
+        $NhaXuatController->remove();
         break;
     case 'donHang':
         $DonHangController = new DonHangController();
         $DonHangController->index();
         break;
-    case 'donHang_add':
+    case 'donHang_update_tt':
         $DonHangController = new DonHangController();
-        $DonHangController->index();
+        $DonHangController->update_tt_dh();
         break;
     case 'donHang_fix':
         $DonHangController = new DonHangController();
@@ -89,8 +114,32 @@ switch ($controller) {
         break;
     case 'donHang_delete':
         $DonHangController = new DonHangController();
-        $DonHangController->index();
+        $DonHangController->delete();
         break;
+    case 'trangThaiDH':
+        $DonHangController = new DonHangController();
+        $DonHangController->showTT();
+        break;
+    case 'trangThaiDH_update':
+        $DonHangController = new DonHangController();
+        $DonHangController->update_tt();
+        break;
+        // case 'donHang':
+        //     $DonHangController = new DonHangController();
+        //     $DonHangController->index();
+        //     break;
+        // case 'donHang_add':
+        //     $DonHangController = new DonHangController();
+        //     $DonHangController->index();
+        //     break;
+        // case 'donHang_fix':
+        //     $DonHangController = new DonHangController();
+        //     $DonHangController->index();
+        //     break;
+        // case 'donHang_delete':
+        //     $DonHangController = new DonHangController();
+        //     $DonHangController->index();
+        //     break;
     case 'boTruyen':
         $BoTruyenController = new BoTruyenController();
         $BoTruyenController->index();
@@ -101,11 +150,11 @@ switch ($controller) {
         break;
     case 'boTruyen_fix':
         $BoTruyenController = new BoTruyenController();
-        $BoTruyenController->index();
+        $BoTruyenController->update();
         break;
     case 'boTruyen_delete':
         $BoTruyenController = new BoTruyenController();
-        $BoTruyenController->index();
+        $BoTruyenController->remove();
         break;
     case 'loaisanpham':
         $loaiSanPhamController = new LoaiSanPhamController();
@@ -113,15 +162,15 @@ switch ($controller) {
         break;
     case 'loaisanpham_add':
         $loaiSanPhamController = new LoaiSanPhamController();
-        $loaiSanPhamController->index();
+        $loaiSanPhamController->add();
         break;
     case 'loaisanpham_fix':
         $loaiSanPhamController = new LoaiSanPhamController();
-        $loaiSanPhamController->index();
+        $loaiSanPhamController->update();
         break;
     case 'loaisanpham_delete':
         $loaiSanPhamController = new LoaiSanPhamController();
-        $loaiSanPhamController->index();
+        $loaiSanPhamController->remove();
         break;
     case 'tacGia':
         $TacGiaController = new TacGiaController();
@@ -176,6 +225,10 @@ switch ($controller) {
     case 'giohang_fix':
         break;
     case 'giohang_delete':
+        break;
+    case 'setting':
+        $SettingController = new SettingController();
+        $SettingController->index();
         break;
     case 'chatBox':
         $ChatBoxController = new ChatBoxController();

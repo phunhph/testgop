@@ -20,7 +20,7 @@
     </h3>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="index.php?controller=signup" method="post">
+            <form action="index.php?controller=dangKy" method="post">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -35,7 +35,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="index.php?controller=login" method="post">
+            <form action="index.php?controller=dangNhap" method="post">
                 <h1>Sign in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -49,11 +49,11 @@
                                                     }
                                                     ?> placeholder="Email" />
                 <input type="password" name="password" <?php
-                                                            if (isset($_SESSION['password'])) {
-                                                                echo 'value="' . $_SESSION['password'] . '"';
-                                                            }
-                                                            ?> placeholder="Password" />
-                <a href="index.php?controller=forgot">Forgot your password?</a>
+                                                        if (isset($_SESSION['password'])) {
+                                                            echo 'value="' . $_SESSION['password'] . '"';
+                                                        }
+                                                        ?> placeholder="Password" />
+                <a href="index.php?controller=quenMatKhau">Forgot your password?</a>
                 <button>Sign In</button>
             </form>
         </div>

@@ -1,5 +1,5 @@
 <?php
-include('models/TacGia.php');
+include_once('models/TacGia.php');
 class TacGiaDAO
 {
     // kết nối database
