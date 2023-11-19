@@ -222,13 +222,10 @@ class User
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
 
-
-
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Add user ID to the array
             $userIds = $row['id_user'];
         }
-
         return $userIds;
     }
 }
